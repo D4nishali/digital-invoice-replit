@@ -12,7 +12,7 @@ import type {
 import { eq, desc, sql, sum, count } from 'drizzle-orm';
 
 // Initialize database connection
-const sql_client = neon(process.env.DATABASE_URL!);
+const sql_client = neon(process.env.DATABASE_URL || 'postgresql://localhost:5432/d_invoice');
 const db = drizzle(sql_client, { schema });
 
 export class DbStorage {
